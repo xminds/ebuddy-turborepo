@@ -166,7 +166,7 @@ const Home = () => {
                   height: { xs: 35, sm: 40 },
                 }}
               >
-                A
+                {user && user.displayName?.slice(0,2).toUpperCase()}
               </Avatar>
             </IconButton>
 
