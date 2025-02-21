@@ -26,7 +26,7 @@ turbo run dev
 
 ## Running Firebase Emulator for Auth and Storage
 
-To ensure the correct configuration of ports and project settings, use the firebase.json file in the root folder:
+To ensure the correct configuration of ports and project settings, use the `firebase.json` file in the root folder:
 ```
 npx firebase emulators:start --only auth,storage
 ```
