@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }, [isInitialized, user, router]);
 
   if (!isInitialized) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return <>{children}</>;

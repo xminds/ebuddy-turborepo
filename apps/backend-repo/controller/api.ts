@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { db, auth} from '../config/firebaseConfig';
-import { User } from '../entities/user';
+import { User } from "@ebuddy/shared/types/user";
 import bcrypt from 'bcryptjs';
 
 // CreateRequest interface that includes firebaseRef
@@ -57,8 +57,7 @@ const fetchUserData = async (req: Request, res: Response) => {
 const signupUser = async (req: Request, res: Response) => {
     try {
       const { email, password, displayName } = req.body;
-  
-      // Ensure required fields are provided
+
       if (!email || !password || !displayName) {
         return res.status(400).json({ message: 'Missing required fields' });
       }
@@ -94,7 +93,7 @@ const signupUser = async (req: Request, res: Response) => {
   };
   
   const hashPassword = async (password: string): Promise<string> => {
-    const salt = await bcrypt.genSalt(10); // 10 rounds of salting (you can increase it for more security)
+    const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     return hashedPassword;
   };

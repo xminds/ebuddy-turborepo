@@ -6,21 +6,17 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const cors = require("cors");
-// Enable CORS for requests from localhost:3000
-
-
 const app = express();
+
 const corsOptions = {
   origin: "*",
   methods: "GET,POST,PUT,DELETE",
-  credentials: true // Allow cookies or auth headers
+  credentials: true
 };
 
 app.use(cors(corsOptions));
-// Parse JSON bodies for incoming requests
 app.use(express.json());
-
-app.use(bodyParser.json()); // To parse JSON request bodies
+app.use(bodyParser.json());
 
 
 app.get("/", (req, res) => {

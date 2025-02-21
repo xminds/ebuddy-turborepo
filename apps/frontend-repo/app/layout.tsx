@@ -1,7 +1,4 @@
 
-// layout.tsx
-"use client"; 
-
 import './globals.css';
 import ReduxProvider  from "../providers/ReduxProvider"
 
