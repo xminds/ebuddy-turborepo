@@ -1,4 +1,3 @@
-// firebaseConfig.ts
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -21,15 +20,15 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-// if (process.env.NODE_ENV === 'development') {
-//   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
-//   connectFirestoreEmulator(firestore, 'localhost', 8080);
-// }
+if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true") {
+  console.log("Using Firebase Emulator");
+  connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
+  connectFirestoreEmulator(firestore, "localhost", 8080);
+}
 
 // Custom Hook for Firebase Auth
 export function useFirebaseAuth() {

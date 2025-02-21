@@ -1,6 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { router as userRoutes } from '../routes/userRoute';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 const cors = require("cors");
 // Enable CORS for requests from localhost:3000
 
@@ -34,5 +38,5 @@ app.use('/api/user', userRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log('Server is running on http://localhost:5000');
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
