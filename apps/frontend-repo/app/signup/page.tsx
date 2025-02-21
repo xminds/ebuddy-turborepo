@@ -12,6 +12,9 @@ import { styled } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { signupUser as signupUserApi } from "@/apis/userApi";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { signupError } from "@/store/authSlice";
+import type { RootState, AppDispatch } from "@/store/store";
 
 const LoginBox = styled("form")(({ theme }) => ({
   display: "flex",
@@ -58,26 +61,27 @@ const SidePanel = styled(Box)<{ children: React.ReactNode }>(({ theme }) => ({
 }));
 
 const SignupPage = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { error } = useSelector((state: RootState) => state.auth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [error, setError] = useState("");
   const router = useRouter();
   const [btnLoading, setBtnLoading] = useState(false);
 
   const handleSignup = async (e: React.FormEvent) => {
     setBtnLoading(true);
     e.preventDefault();
-    setError("");
+    dispatch(signupError(""));
 
     // Email validation using regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!email || !displayName || !password) {
-      setError("Please fill all fields.");
+      dispatch(signupError("Please fill all fields."));
       setBtnLoading(false);
       return;
     } else if (!emailRegex.test(email)) {
-      setError("Please enter a valid email address.");
+      dispatch(signupError("Please enter a valid email address."));
       setBtnLoading(false);
       return;
     }
@@ -95,7 +99,7 @@ const SignupPage = () => {
         router.push("/login");
       }
     } catch (error: any) {
-      setError(error.message);
+      dispatch(signupError(error.message));
     } finally {
       setBtnLoading(false);
     }

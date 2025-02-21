@@ -101,7 +101,7 @@ const LoginPage = () => {
       dispatch(loginSuccess({ uid: firebaseUser.uid, email: firebaseUser.email || "" }));
       router.push("/home");
     } catch (error: any) {
-      dispatch(loginFailure(error.message));
+      dispatch(loginFailure("Invalid credentials"));
     } finally {
       setBtnLoading(false);
     }
