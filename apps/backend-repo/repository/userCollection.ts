@@ -1,5 +1,5 @@
 import { db } from '../config/firebaseConfig';
-import { User } from '../entities/user';
+import { User } from "@ebuddy/shared/types/user";
 
 const updateUser = async (uid: string, userData: Partial<User>) => {
   try {

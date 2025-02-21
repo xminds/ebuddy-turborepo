@@ -11,6 +11,7 @@
     "prebuild": "npm run test"
   },
   "dependencies": {
+    "@ebuddy/shared": "file:../../packages/shared",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.5",

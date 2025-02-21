@@ -28,7 +28,7 @@ turbo run dev
 
 To ensure the correct configuration of ports and project settings, use the `firebase.json` file in the root folder:
 ```
-npx firebase emulators:start --only auth,storage
+firebase emulators:start --only auth,firestore
 ```
 This will properly configure Firestore, Authentication, and any other Firebase services used in development.
 
