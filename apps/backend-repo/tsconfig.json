@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./",
-    "typeRoots": ["node_modules/@types", "src/@types"]  // Make sure the path is correct
+    "typeRoots": ["node_modules/@types", "src/@types"]
   },
   "include": [
     "core/**/*",
@@ -19,5 +19,5 @@
     "middlewares/**/*",
     "types/**/*" 
   ],
-  "exclude": ["dist"]
+  "exclude": ["node_modules", "dist"]
 }

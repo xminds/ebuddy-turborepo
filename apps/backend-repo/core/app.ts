@@ -22,6 +22,11 @@ app.use(express.json());
 
 app.use(bodyParser.json()); // To parse JSON request bodies
 
+
+app.get("/", (req, res) => {
+  res.send("Ebuddy Backend Home Page!");
+});
+
 // Use the user routes
 app.use('/api/user', userRoutes);
 
