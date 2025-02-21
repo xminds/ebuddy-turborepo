@@ -36,10 +36,12 @@ firebase emulators:start --only auth,firestore
 ```
 This will properly configure Firestore, Authentication, and any other Firebase services used in development.
 
-Make sure you have Firebase CLI installed. If not, install it globally:
-```
-npm install -g firebase-tools
-```
+### Prerequisites
+1. Install Firebase CLI (if not installed):
+    ```
+    npm install -g firebase-tools
+    ```
+2. The Firebase Emulator requires Java to run. Install Java (JDK 8 or later) from the official source: [Download Java](https://www.oracle.com/java/technologies/downloads/?er=221886)
 
 
 ## Notes
