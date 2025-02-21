@@ -10,18 +10,8 @@ const cors = require("cors");
 
 
 const app = express();
-const allowedOrigins = [
-  "http://localhost:3000",
-];
-
 const corsOptions = {
-  origin: function (origin:any, callback:any) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "*",
   methods: "GET,POST,PUT,DELETE",
   credentials: true // Allow cookies or auth headers
 };

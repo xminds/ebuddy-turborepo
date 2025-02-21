@@ -1,24 +1,11 @@
 import * as admin from 'firebase-admin';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-// Read emulator ports from firebase.json
-const firebaseConfigPath = path.resolve(__dirname, '../../firebase.json');
-let firestorePort = '8080';
-let authPort = '9099';
-
-if (fs.existsSync(firebaseConfigPath)) {
-  try {
-    const firebaseConfig = JSON.parse(fs.readFileSync(firebaseConfigPath, 'utf-8'));
-    firestorePort = firebaseConfig.emulators?.firestore?.port?.toString() || firestorePort;
-    authPort = firebaseConfig.emulators?.auth?.port?.toString() || authPort;
-  } catch (error) {
-    console.error('⚠️ Error reading firebase.json:', error);
-  }
-}
+// Read emulator ports from environment variables
+const firestorePort = process.env.FIRESTORE_EMULATOR_PORT || '8080';
+const authPort = process.env.AUTH_EMULATOR_PORT || '9099';
 
 try {
   if (!admin.apps.length) {
