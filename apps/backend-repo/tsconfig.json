@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "typeRoots": ["node_modules/@types", "src/@types"]  // Make sure the path is correct
+  },
+  "include": [
+    "core/**/*",
+    "controller/**/*",
+    "config/**/*",
+    "entities/**/*",
+    "routes/**/*",
+    "middlewares/**/*",
+    "types/**/*" 
+  ],
+  "exclude": ["dist"]
+}

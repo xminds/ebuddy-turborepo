@@ -1,0 +1,50 @@
+# **General Node.js & Turborepo Ignore Rules**
+node_modules/
+.turbo/
+
+# Ignore lockfiles inside apps & packages, but keep the root one
+/apps/*/package-lock.json
+/packages/*/package-lock.json
+dist/
+.out/
+turbo/
+.nx/
+
+# **Build & Output Directories**
+/apps/*/.next
+/apps/*/.vercel
+/apps/*/dist
+/apps/*/build
+/packages/*/dist
+/packages/*/build
+
+# **Environment Variables**
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# **Logs & Debugging Files**
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+firebase-debug.log*
+firebase-debug.*.log*
+debug.log
+
+# **VS Code & Editor Configs**
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# **MacOS & System Files**
+.DS_Store
+Thumbs.db
+
+# **Turborepo Cache**
+/node_modules/.cache
+/apps/*/.turbo
+/packages/*/.turbo
