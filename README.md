@@ -9,13 +9,17 @@ git clone git@github.com:xminds/ebuddy-turborepo.git
 cd ebuddy-turborepo
 ```
 
-Install Dependencies
+Install Dependencies:
 ```
 npm install
 ```
 
-Start Development Servers:
+Install Turbo (if not already installed):
+```
+npm install -g turbo
+```
 
+Start the Development Servers:
 ```
 turbo run dev
 ```
